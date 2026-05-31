@@ -3,141 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>پرنیا علی‌نژاد | امپراتوری دیجیتال و هوش مصنوعی</title>
+    <title>پرنیا علی‌نژاد | متخصص هوش مصنوعی و امپراتوری مارکتینگ</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;500;800&display=swap');
         
-        :root { --main: #a78bfa; --accent: #22d3ee; --dark: #020617; --white: #ffffff; }
-        * { box-sizing: border-box; outline: none; }
-        body { background: var(--dark); color: var(--white); font-family: 'Vazirmatn', sans-serif; margin: 0; overflow-x: hidden; scroll-behavior: smooth; }
+        :root { --p: #c084fc; --s: #22d3ee; --gold: #fbbf24; --dark: #07071c; }
+        * { box-sizing: border-box; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        body { background: var(--dark); color: #fff; font-family: 'Vazirmatn', sans-serif; margin: 0; overflow-x: hidden; scroll-behavior: smooth; }
 
-        /* پس‌زمینه متحرک امواج رنگی (Mesh Gradient) */
-        .bg-flow { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: linear-gradient(45deg, #020617, #1e1b4b, #020617); background-size: 400% 400%; animation: gradient 15s ease infinite; }
-        @keyframes gradient { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        /* بک‌گراند کهکشانی-انیمه‌ای متحرک */
+        .nebula-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; background: linear-gradient(125deg, #07071c, #1e1b4b, #2e1065, #07071c); background-size: 400% 400%; animation: nebulaMove 15s infinite; }
+        @keyframes nebulaMove { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        .stars { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background-image: radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px); background-size: 200px 200px; animation: starsMove 100s linear infinite; opacity: 0.3; }
+        @keyframes starsMove { from { transform: translateY(0); } to { transform: translateY(-2000px); } }
 
-        /* منوی فوق حرفه‌ای */
-        nav { background: rgba(2, 6, 23, 0.8); backdrop-filter: blur(20px); position: fixed; top: 0; width: 100%; z-index: 1000; padding: 15px 5%; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-weight: 800; font-size: 1.2rem; color: var(--main); }
-        nav a { color: #fff; text-decoration: none; margin-right: 20px; font-size: 0.9rem; transition: 0.3s; opacity: 0.8; }
-        nav a:hover { opacity: 1; color: var(--accent); }
+        /* منوی کشویی مدرن (Hamburger) */
+        .nav-container { position: fixed; top: 20px; right: 20px; z-index: 1000; }
+        #menu-toggle { display: none; }
+        .menu-icon { background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); width: 50px; height: 50px; border-radius: 15px; display: flex; justify-content: center; align-items: center; cursor: pointer; border: 1px solid rgba(255,255,255,0.2); }
+        .menu-content { position: fixed; top: 80px; right: -300px; background: rgba(7, 7, 28, 0.95); backdrop-filter: blur(20px); width: 250px; border-radius: 20px; padding: 20px; border: 1px solid var(--p); box-shadow: 0 0 30px rgba(192, 132, 252, 0.3); }
+        #menu-toggle:checked ~ .menu-content { right: 20px; }
+        .menu-content a { display: block; color: #fff; text-decoration: none; padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); font-weight: bold; }
+        .menu-content a:hover { color: var(--s); transform: translateX(-10px); }
 
-        /* هدر (Hero Section) */
+        /* هدر لوکس */
         header { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 5%; }
-        .hero-card { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(30px); border: 1px solid rgba(255,255,255,0.1); border-radius: 40px; padding: 50px 30px; max-width: 900px; box-shadow: 0 0 100px rgba(167, 139, 250, 0.1); animation: slideUp 1s ease; }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+        .badge { background: linear-gradient(90deg, var(--gold), #f59e0b); color: #000; padding: 6px 20px; border-radius: 50px; font-weight: 800; font-size: 0.8rem; margin-bottom: 20px; box-shadow: 0 0 20px rgba(251, 191, 36, 0.4); }
+        h1 { font-size: clamp(2.8rem, 10vw, 5rem); font-weight: 800; margin: 0; line-height: 1.1; background: linear-gradient(to bottom, #fff 30%, var(--p), var(--s)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 15px rgba(34, 211, 238, 0.3)); }
+        
+        /* دکمه‌های نئونی متحرک */
+        .btn-glow { position: relative; padding: 18px 45px; background: rgba(255,255,255,0.05); border: 2px solid var(--s); border-radius: 50px; color: #fff; text-decoration: none; font-weight: 800; overflow: hidden; display: inline-flex; align-items: center; gap: 10px; margin-top: 30px; box-shadow: 0 0 20px rgba(34, 211, 238, 0.2); }
+        .btn-glow:hover { background: var(--s); color: #000; box-shadow: 0 0 40px var(--s); transform: scale(1.05); }
 
-        h1 { font-size: clamp(2.5rem, 7vw, 4.5rem); font-weight: 800; margin: 0; background: linear-gradient(to left, #fff, var(--main), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .experience { background: var(--main); color: #000; padding: 5px 15px; border-radius: 50px; font-weight: bold; font-size: 0.8rem; display: inline-block; margin-bottom: 20px; }
+        /* بخش خدمات حرفه‌ای */
+        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 60px; color: var(--p); text-transform: uppercase; letter-spacing: 3px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; padding: 0 8%; }
+        .card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 35px; padding: 40px; position: relative; overflow: hidden; }
+        .card:hover { border-color: var(--s); background: rgba(34, 211, 238, 0.05); transform: translateY(-15px); }
+        .card i { font-size: 3.5rem; background: linear-gradient(45deg, var(--s), var(--p)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 25px; display: block; }
 
-        /* بخش قیمت استثنایی */
-        .price-tag { background: linear-gradient(90deg, #f59e0b, #fbbf24); color: #000; padding: 15px 30px; border-radius: 20px; font-weight: 800; margin-top: 30px; display: inline-block; box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3); animation: pulse 2s infinite; }
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+        /* بخش نمونه کارها (گالری) */
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; padding: 0 8%; }
+        .work-box { aspect-ratio: 16/9; background: rgba(255,255,255,0.05); border-radius: 20px; border: 2px dashed rgba(255,255,255,0.2); display: flex; justify-content: center; align-items: center; color: rgba(255,255,255,0.3); font-weight: bold; }
 
-        /* گرید خدمات */
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 50px 5%; }
-        .s-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 25px; padding: 30px; transition: 0.4s; text-align: right; }
-        .s-card:hover { border-color: var(--main); background: rgba(167, 139, 250, 0.05); transform: translateY(-10px); }
-        .s-card i { font-size: 2.5rem; color: var(--accent); margin-bottom: 20px; display: block; }
-        .s-card h3 { font-size: 1.3rem; margin-bottom: 15px; color: var(--main); }
+        /* فوتر و دکمه‌های شناور */
+        .float-contact { position: fixed; bottom: 30px; left: 30px; z-index: 1000; display: flex; flex-direction: column; gap: 15px; }
+        .icon-circle { width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.8rem; color: #fff; box-shadow: 0 0 25px rgba(0,0,0,0.5); animation: pulseBtn 2s infinite; }
+        @keyframes pulseBtn { 0% { box-shadow: 0 0 0 0px rgba(34, 211, 238, 0.4); } 100% { box-shadow: 0 0 0 20px rgba(34, 211, 238, 0); } }
 
-        /* دکمه‌های تماس نئونی */
-        .contact-bar { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 40px; }
-        .c-btn { padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 10px; transition: 0.4s; border: 2px solid transparent; color: #fff; }
-        .c-btn-ph { border-color: #22c55e; box-shadow: 0 0 15px rgba(34, 197, 94, 0.2); }
-        .c-btn-ph:hover { background: #22c55e; box-shadow: 0 0 30px #22c55e; }
-        .c-btn-tg { border-color: #3b82f6; box-shadow: 0 0 15px rgba(59, 130, 246, 0.2); }
-        .c-btn-tg:hover { background: #3b82f6; box-shadow: 0 0 30px #3b82f6; }
-
-        /* دکمه‌های شناور متحرک */
-        .floating-group { position: fixed; bottom: 30px; left: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 9999; }
-        .f-icon { width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.5rem; color: #fff; box-shadow: 0 10px 20px rgba(0,0,0,0.3); transition: 0.3s; animation: float 3s infinite ease-in-out; }
-        .f-wa { background: #25d366; border: 3px solid rgba(255,255,255,0.3); }
-        .f-tg { background: #0088cc; border: 3px solid rgba(255,255,255,0.3); animation-delay: 1.5s; }
-        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
-
-        footer { padding: 80px 5%; text-align: center; background: rgba(0,0,0,0.5); border-top: 1px solid rgba(255,255,255,0.1); }
+        .price-box { background: linear-gradient(135deg, var(--gold), #d97706); color: #000; padding: 25px; border-radius: 30px; font-weight: 800; font-size: 1.2rem; display: inline-block; margin: 40px 0; box-shadow: 0 15px 35px rgba(217, 119, 6, 0.4); }
     </style>
 </head>
 <body>
 
-    <div class="bg-flow"></div>
+    <div class="nebula-bg"></div>
+    <div class="stars"></div>
 
-    <nav>
-        <div class="logo">PARNIA ALINEJAD</div>
-        <div>
-            <a href="#services">خدمات</a>
-            <a href="#about">چرا ما؟</a>
+    <div class="nav-container">
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="menu-icon"><i class="fas fa-bars"></i></label>
+        <div class="menu-content">
+            <a href="#home">خانه</a>
+            <a href="#services">خدمات و تخصص</a>
+            <a href="#portfolio">نمونه کارها</a>
             <a href="#contact">مشاوره رایگان</a>
         </div>
-    </nav>
+    </div>
 
     <header id="home">
-        <div class="hero-card">
-            <div class="experience">تجربه ۴+ سال مدیریت و نتایج تضمینی</div>
-            <h1>پرنیا علی‌نژاد</h1>
-            <p style="font-size: 1.2rem; color: #94a3b8; margin: 20px 0;">متخصص ادمینی حرفه‌ای و استراتژیست هوش مصنوعی</p>
-            <p style="max-width: 600px; margin: 0 auto; line-height: 1.8; opacity: 0.9;">مدیریت کامل اینستاگرام، روبیکا و پلتفرم‌های داخلی. از سناریونویسی وایرال تا تولید محتوای AI و طراحی وب‌سایت؛ ما برند شما را به درآمد می‌رسانیم.</p>
-            
-            <div class="price-tag">
-                شروع قیمت از ۴ میلیون تومان + پرداخت اقساطی آسان!
-            </div>
-
-            <div class="contact-bar">
-                <a href="tel:09920591283" class="c-btn c-btn-ph"><i class="fas fa-phone-alt"></i> تماس مستقیم</a>
-                <a href="https://t.me/Parnia_Alinejad" class="c-btn c-btn-tg"><i class="fab fa-telegram-plane"></i> تلگرام اختصاصی</a>
-            </div>
-        </div>
+        <div class="badge">بیش از ۵+ سال تجربه حرفه‌ای در مارکتینگ</div>
+        <h1>پرنیا علی‌نژاد</h1>
+        <p style="font-size: 1.5rem; color: var(--s); margin-top: 15px; font-weight: 500;">معمار امپراتوری دیجیتال و متخصص AI</p>
+        <p style="max-width: 700px; line-height: 2; opacity: 0.8; margin-top: 20px;">
+            ما فقط پیج مدیریت نمی‌کنیم؛ ما هویت برند شما را با قدرت هوش مصنوعی و استراتژی‌های فروش ۲۰۲۶ بازآفرینی می‌کنیم. از روبیکا تا اینستاگرام، از سناریوی وایرال تا طراحی وب‌سایت‌های فوق‌پیشرفته.
+        </p>
+        <a href="tel:09920591283" class="btn-glow"><i class="fas fa-bolt"></i> شروع همکاری انفجاری</a>
     </header>
 
     <section id="services" style="padding: 100px 0;">
-        <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 50px;">خدمات از A تا Z</h2>
-        <div class="services-grid">
-            <div class="s-card">
-                <i class="fas fa-tasks"></i>
-                <h3>مدیریت جامع (Admin)</h3>
-                <p>مدیریت اینستاگرام، روبیکا و تمامی برنامه‌های داخلی با پاسخگویی ۲۴ ساعته و پشتیبانی کامل.</p>
-            </div>
-            <div class="s-card">
-                <i class="fas fa-video"></i>
-                <h3>خلق محتوای وایرال</h3>
-                <p>سناریونویسی فروش، تولید پست، استوری و ریلز با کیفیت بالا و ادیت حرفه‌ای عکس و ویدیو.</p>
-            </div>
-            <div class="s-card">
+        <h2 class="section-title">تخصص‌های فول‌استک</h2>
+        <div class="grid">
+            <div class="card">
                 <i class="fas fa-robot"></i>
-                <h3>هوش مصنوعی و وب</h3>
-                <p>استفاده از AI برای تولید محتوا و طراحی لندینگ پیج‌های حرفه‌ای برای جذب لید و فروش.</p>
+                <h3>هوش مصنوعی (AI)</h3>
+                <p>استفاده از آخرین مدل‌های هوش مصنوعی برای تولید محتوای ویدیویی، تصاویر خیره‌کننده و آنالیز دیتای پیج جهت تضمین رشد.</p>
             </div>
-            <div class="s-card">
-                <i class="fas fa-users"></i>
-                <h3>رشد و تعامل</h3>
-                <p>افزایش فالوور واقعی، طراحی کاور و بنر، و رساندن پیج شما به درآمدهای میلیونی.</p>
+            <div class="card">
+                <i class="fas fa-laptop-code"></i>
+                <h3>طراحی وب‌سایت</h3>
+                <p>طراحی لندینگ‌پیج‌های لوکس و پرسرعت که هر بازدیدکننده را به مشتری قطعی تبدیل می‌کند. (UI/UX مدرن)</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-rocket"></i>
+                <h3>ادمین همه‌جانبه</h3>
+                <p>مدیریت حرفه‌ای اینستاگرام و روبیکا، پاسخگویی ۲۴ ساعته، افزایش تعامل واقعی و رساندن برند به اکسپلور.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-paint-brush"></i>
+                <h3>ادیت و بنر تبلیغاتی</h3>
+                <p>ساخت بنرهای حرفه‌ای، کاورهای یوتیوب و اینستاگرام، و تدوین ویدیو با کیفیت سینمایی و سناریو فروش.</p>
             </div>
         </div>
     </section>
 
-    <section id="about" style="text-align: center; padding: 100px 10%; background: rgba(167, 139, 250, 0.05);">
-        <h2 style="color: var(--accent);">چرا باید پیج‌تان را به ما بسپارید؟</h2>
-        <div class="services-grid">
-            <div style="padding: 20px;"><h3>نتایج تضمینی</h3><p>ما فقط مدیریت نمی‌کنیم، ما نتیجه می‌گیریم.</p></div>
-            <div style="padding: 20px;"><h3>نمونه کار واقعی</h3><p>سابقه همکاری با برندهای مختلف و رضایت مشتریان.</p></div>
-            <div style="padding: 20px;"><h3>تکنولوژی نوین</h3><p>ترکیب تجربه ۴ ساله با قدرت هوش مصنوعی.</p></div>
+    <section id="portfolio" style="padding: 100px 0; background: rgba(255,255,255,0.02);">
+        <h2 class="section-title">گالری پروژه‌ها</h2>
+        <div class="portfolio-grid">
+            <div class="work-box">پروژه ۱ (به زودی)</div>
+            <div class="work-box">پروژه ۲ (به زودی)</div>
+            <div class="work-box">پروژه ۳ (به زودی)</div>
+            <div class="work-box">پروژه ۴ (به زودی)</div>
         </div>
     </section>
 
-    <footer id="contact">
-        <h2>آماده شروع همکاری هستید؟</h2>
-        <p>همین حالا تماس بگیرید و مشاوره رایگان دریافت کنید.</p>
-        <div class="contact-bar">
-            <a href="tel:09920591283" class="c-btn c-btn-ph">تماس و پیامک</a>
-            <a href="https://wa.me/989920591283" class="c-btn c-btn-tg" style="border-color: #25d366;">گفتگو در واتس‌اپ</a>
+    <section style="text-align: center; padding: 100px 5%;">
+        <div class="price-box">
+            قیمت استثنایی از ۴ میلیون تومان <br>
+            <span style="font-size: 0.9rem; opacity: 0.8;">قابلیت پرداخت اقساطی بدون بهره!</span>
         </div>
-        <p style="margin-top: 50px; opacity: 0.5;">تمامی حقوق برای برند <b>پرنیا علی‌نژاد</b> محفوظ است | ۲۰۲۶</p>
+        <div style="margin-top: 30px;">
+            <a href="https://t.me/Parnia_Alinejad" class="btn-glow" style="border-color: var(--p);"><i class="fab fa-telegram-plane"></i> تلگرام اختصاصی</a>
+        </div>
+    </section>
+
+    <footer style="padding: 60px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1);">
+        <p>شماره تماس مستقیم: 09920591283</p>
+        <p style="opacity: 0.5;">تمامی حقوق محفوظ است | طراحی شده توسط هوشا برای پرنیا علی‌نژاد</p>
     </footer>
 
-    <div class="floating-group">
-        <a href="https://wa.me/989920591283" class="f-icon f-wa"><i class="fab fa-whatsapp"></i></a>
-        <a href="https://t.me/Parnia_Alinejad" class="f-icon f-tg"><i class="fab fa-telegram-plane"></i></a>
+    <div class="float-contact">
+        <a href="https://wa.me/989920591283" class="icon-circle" style="background: #25d366;"><i class="fab fa-whatsapp"></i></a>
+        <a href="tel:09920591283" class="icon-circle" style="background: var(--s);"><i class="fas fa-phone"></i></a>
     </div>
 
 </body>
