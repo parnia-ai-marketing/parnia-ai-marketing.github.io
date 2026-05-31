@@ -3,82 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>پرنیا علی‌نژاد | متخصص ادمینی و هوش مصنوعی</title>
+    <title>پرنیا علی‌نژاد | متخصص هوش مصنوعی و استراتژیست مارکتینگ</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --p: #a78bfa; --bg: #030712; --glass: rgba(255, 255, 255, 0.05); }
-        body { background: var(--bg); color: #fff; font-family: 'Tahoma', sans-serif; margin: 0; scroll-behavior: smooth; }
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;700&display=swap');
         
-        /* منوی بالا */
-        nav { background: rgba(3, 7, 18, 0.8); backdrop-filter: blur(10px); position: fixed; top: 0; width: 100%; z-index: 1000; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
-        nav a { color: #fff; text-decoration: none; margin: 0 15px; font-size: 0.9rem; transition: 0.3s; }
-        nav a:hover { color: var(--p); }
+        :root { --p: #a78bfa; --s: #4c1d95; --bg: #020617; }
+        * { box-sizing: border-box; }
+        body { background: var(--bg); color: #fff; font-family: 'Vazirmatn', 'Tahoma', sans-serif; margin: 0; overflow-x: hidden; scroll-behavior: smooth; }
 
-        header { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: radial-gradient(circle at center, #1e1b4b 0%, #030712 100%); }
-        .glass-box { background: var(--glass); backdrop-filter: blur(15px); border: 1px solid rgba(255,255,255,0.1); border-radius: 30px; padding: 40px; width: 80%; max-width: 600px; }
+        /* پس‌زمینه کهکشانی متحرک */
+        #stars-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%); overflow: hidden; }
+        .star { position: absolute; background: white; border-radius: 50%; opacity: 0.5; animation: moveStar var(--d) linear infinite; }
+        @keyframes moveStar { from { transform: translateY(0); } to { transform: translateY(-100vh); } }
+
+        /* استایل‌های اصلی */
+        nav { background: rgba(2, 6, 23, 0.7); backdrop-filter: blur(15px); position: fixed; top: 0; width: 100%; z-index: 1000; padding: 20px 0; border-bottom: 1px solid rgba(167, 139, 250, 0.2); }
+        nav a { color: #fff; text-decoration: none; margin: 0 20px; font-weight: bold; font-size: 0.9rem; transition: 0.3s; }
+        nav a:hover { color: var(--p); text-shadow: 0 0 10px var(--p); }
+
+        header { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; }
+        .glass-hero { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(25px); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 40px; padding: 60px; max-width: 800px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); border-top: 2px solid var(--p); animation: fadeIn 1.5s ease-out; }
         
-        .section { padding: 80px 10%; text-align: center; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 40px; }
-        .card { background: var(--glass); border: 1px solid rgba(255,255,255,0.1); padding: 25px; border-radius: 20px; transition: 0.3s; }
-        .card:hover { border-color: var(--p); transform: translateY(-5px); }
-        .card i { font-size: 2.5rem; color: var(--p); margin-bottom: 15px; }
+        h1 { font-size: clamp(2.5rem, 8vw, 4rem); margin: 0; background: linear-gradient(to left, #fff, var(--p), #ddd); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 15px rgba(167, 139, 250, 0.3)); }
+        .typewriter { font-size: 1.2rem; color: #94a3b8; margin-top: 20px; border-left: 2px solid var(--p); padding-left: 10px; }
 
-        /* دکمه‌های تماس */
-        .contact-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 30px; }
-        .btn { padding: 12px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.3s; display: flex; align-items: center; gap: 8px; }
-        .btn-call { background: #22c55e; color: #fff; }
-        .btn-wa { background: #25d366; color: #fff; }
-        .btn-tg { background: #3b82f6; color: #fff; }
+        .btn-group { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 40px; }
+        .main-btn { padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.5s; display: flex; align-items: center; gap: 10px; border: 1px solid var(--p); color: #fff; position: relative; overflow: hidden; }
+        .main-btn:hover { background: var(--p); color: #000; box-shadow: 0 0 30px var(--p); transform: scale(1.05); }
 
-        /* دکمه شناور */
-        .floating-contact { position: fixed; bottom: 20px; left: 20px; background: var(--p); width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.5rem; color: #fff; box-shadow: 0 0 20px var(--p); z-index: 9999; animation: pulse 2s infinite; }
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+        .section { padding: 100px 10%; }
+        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .premium-card { background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%); border: 1px solid rgba(255,255,255,0.1); border-radius: 30px; padding: 40px; transition: 0.4s; position: relative; overflow: hidden; }
+        .premium-card:hover { border-color: var(--p); transform: translateY(-10px); background: rgba(255,255,255,0.07); }
+        .premium-card i { font-size: 3rem; background: linear-gradient(to bottom, #fff, var(--p)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px; }
+
+        /* دکمه شناور نئونی */
+        .neon-wa { position: fixed; bottom: 30px; left: 30px; background: #25d366; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 2rem; color: #fff; box-shadow: 0 0 20px #25d366; z-index: 9999; animation: bounce 2s infinite; }
+        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+        footer { padding: 60px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); background: rgba(0,0,0,0.3); }
     </style>
 </head>
 <body>
 
+    <div id="stars-container"></div>
+
     <nav>
-        <a href="#home">خانه</a>
-        <a href="#services">خدمات</a>
-        <a href="#contact">تماس با من</a>
+        <a href="#home">صفحه اصلی</a>
+        <a href="#services">تخصص‌ها</a>
+        <a href="#contact">همکاری</a>
     </nav>
 
     <header id="home">
-        <div class="glass-box">
-            <h1 style="font-size: 2.5rem; margin-bottom: 10px;">پرنیا علی‌نژاد</h1>
-            <p style="color: var(--p); font-size: 1.2rem;">استراتژیست محتوا و متخصص هوش مصنوعی</p>
-            <div class="contact-btns">
-                <a href="tel:09920591283" class="btn btn-call"><i class="fas fa-phone"></i> تماس تلفنی</a>
-                <a href="https://wa.me/09920591283" class="btn btn-wa"><i class="fab fa-whatsapp"></i> واتس‌اپ</a>
+        <div class="glass-hero">
+            <div style="color: var(--p); letter-spacing: 2px; font-weight: bold; margin-bottom: 15px;">TOP TIER ADMIN & AI SPECIALIST</div>
+            <h1>پرنیا علی‌نژاد</h1>
+            <div class="typewriter">خلق استراتژی‌های هوشمند برای برندهای پیشرو</div>
+            <div class="btn-group">
+                <a href="tel:09120000000" class="main-btn"><i class="fas fa-phone"></i> مشاوره تلفنی</a>
+                <a href="https://t.me/Parnia_Alinejad" class="main-btn"><i class="fab fa-telegram"></i> تلگرام اختصاصی</a>
             </div>
         </div>
     </header>
 
     <section class="section" id="services">
-        <h2>خدمات حرفه‌ای من</h2>
-        <div class="grid">
-            <div class="card"><i class="fas fa-robot"></i><h3>ادمین AI</h3><p>مدیریت هوشمند پیج و تولید محتوا با ابزارهای نوین هوش مصنوعی.</p></div>
-            <div class="card"><i class="fas fa-chart-line"></i><h3>رشد اکسپلور</h3><p>آنالیز رقبا و تدوین استراتژی برای ورود به اکسپلور اینستاگرام.</p></div>
-            <div class="card"><i class="fas fa-code"></i><h3>طراحی لندینگ</h3><p>ساخت صفحات فرود جذاب برای افزایش فروش و جذب لید.</p></div>
+        <h2 style="font-size: 2.5rem; text-align: center; margin-bottom: 50px;">خدمات VIP</h2>
+        <div class="card-grid">
+            <div class="premium-card">
+                <i class="fas fa-microchip"></i>
+                <h3>ادمین مجهز به هوش مصنوعی</h3>
+                <p>استفاده از الگوریتم‌های AI برای تحلیل دقیق رقبا و افزایش نرخ تبدیل پیج شما.</p>
+            </div>
+            <div class="premium-card">
+                <i class="fas fa-vial"></i>
+                <h3>سناریونویسی وایرال</h3>
+                <p>طراحی محتوای ویدیویی که با روانشناسی مخاطب، برند شما را به اکسپلور می‌برد.</p>
+            </div>
+            <div class="premium-card">
+                <i class="fas fa-rocket"></i>
+                <h3>استراتژی رشد ۲۰۲۶</h3>
+                <p>فراتر از یک ادمین؛ من بیزنس شما را برای آینده دنیای دیجیتال آماده می‌کنم.</p>
+            </div>
         </div>
     </section>
 
-    <section class="section" id="contact" style="background: rgba(255,255,255,0.02);">
-        <h2>آماده شروع تحول هستید؟</h2>
-        <p>همین حالا برای دریافت مشاوره رایگان با من در ارتباط باشید.</p>
-        <div class="contact-btns">
-            <a href="https://t.me/Parnia_Alinejad" class="btn btn-tg"><i class="fab fa-telegram"></i> تلگرام</a>
-            <a href="tel:09920591283" class="btn btn-call"><i class="fas fa-comment-alt"></i> پیامک مستقیم</a>
+    <footer id="contact">
+        <h2 style="color: var(--p);">آماده‌اید بیزنس خود را متحول کنید؟</h2>
+        <p>همین حالا تماس بگیرید و قدم اول را محکم بردارید.</p>
+        <div class="btn-group">
+            <a href="tel:09120000000" class="main-btn">ارسال پیامک</a>
+            <a href="https://wa.me/989120000000" class="main-btn">گفتگو در واتس‌اپ</a>
         </div>
-    </section>
+        <div style="margin-top: 50px; opacity: 0.5;">
+            © تمامی حقوق برای <b>پرنیا علی‌نژاد</b> محفوظ است | طراحی شده توسط هوشا
+        </div>
+    </footer>
 
-    <a href="https://wa.me/09920591283" class="floating-contact">
+    <a href="https://wa.me/989120000000" class="neon-wa">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <footer style="padding: 30px; text-align: center; opacity: 0.5; font-size: 0.8rem;">
-        طراحی شده توسط هوشا برای برند پرنیا علی‌نژاد
-    </footer>
-
+    <script>
+        // اسکریپت ساخت ستاره‌های متحرک
+        const container = document.getElementById('stars-container');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            const size = Math.random() * 3 + 'px';
+            star.style.width = size;
+            star.style.height = size;
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.setProperty('--d', Math.random() * 5 + 3 + 's');
+            container.appendChild(star);
+        }
+    </script>
 </body>
 </html>
