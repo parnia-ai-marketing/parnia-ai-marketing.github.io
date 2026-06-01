@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>پرنیا علی‌نژاد | امپراتوری هوش مصنوعی و مارکتینگ</title>
+    <title>پرنیا علی‌نژاد | امپراتوری دیجیتال و هوش مصنوعی</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;500;800&display=swap');
@@ -23,31 +23,30 @@
         .menu-btn { background: rgba(255,255,255,0.1); backdrop-filter: blur(15px); width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; border: 1px solid var(--main); box-shadow: 0 0 15px var(--main); }
         .menu-overlay { position: fixed; top: 0; right: -100%; width: 100%; height: 100%; background: rgba(2, 6, 23, 0.95); backdrop-filter: blur(20px); transition: 0.5s; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 9999; }
         #menu-toggle:checked ~ .menu-overlay { right: 0; }
-        .menu-overlay a { color: #fff; text-decoration: none; font-size: 1.8rem; margin: 20px; font-weight: 800; transition: 0.3s; }
+        .menu-overlay a { color: #fff; text-decoration: none; font-size: 1.8rem; margin: 15px; font-weight: 800; }
 
-        /* هدر لوکس با فیکس دکمه‌ها */
-        header { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 100px 5% 50px; }
-        .glass-box { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(25px); border: 1px solid rgba(255,255,255,0.1); border-radius: 40px; padding: 50px 25px; max-width: 850px; position: relative; width: 100%; }
+        /* هدر لوکس */
+        header { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 80px 5%; }
+        .glass-box { background: rgba(255, 255, 255, 0.02); backdrop-filter: blur(25px); border: 1px solid rgba(255,255,255,0.1); border-radius: 40px; padding: 40px 20px; max-width: 850px; width: 100%; }
         
-        h1 { font-size: clamp(2.3rem, 8vw, 4.5rem); font-weight: 800; margin: 0; background: linear-gradient(to left, #fff, var(--main), #fff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.5)); }
-        .experience-badge { color: var(--main); border: 1px solid var(--main); padding: 5px 20px; border-radius: 50px; font-weight: bold; margin-bottom: 20px; display: inline-block; font-size: 0.9rem; }
+        h1 { font-size: clamp(2.3rem, 8vw, 4.2rem); font-weight: 800; margin: 0; background: linear-gradient(to left, #fff, var(--main), #fff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .badge { color: var(--main); border: 1px solid var(--main); padding: 5px 20px; border-radius: 50px; font-weight: bold; margin-bottom: 20px; display: inline-block; }
 
-        /* قیمت لوکس */
-        .luxury-price { background: linear-gradient(135deg, #f8fafc, #94a3b8); color: #020617; padding: 20px 35px; border-radius: 25px; font-weight: 800; font-size: 1.2rem; margin: 25px 0; display: inline-block; box-shadow: 0 10px 30px rgba(255,255,255,0.1); }
+        /* قیمت لوکس دقیقاً با متن تو */
+        .luxury-price { background: linear-gradient(135deg, #f8fafc, #94a3b8); color: #020617; padding: 20px 30px; border-radius: 25px; font-weight: 800; font-size: 1.1rem; margin: 25px 0; display: inline-block; box-shadow: 0 10px 30px rgba(255,255,255,0.1); line-height: 1.6; }
 
-        /* دکمه‌های نئونی اصلاح شده */
-        .btn-container { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; margin-top: 20px; width: 100%; }
-        .neon-btn { padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: 800; display: inline-flex; align-items: center; gap: 10px; color: #fff; border: 2px solid var(--main); transition: 0.4s; font-size: 0.95rem; }
-        .neon-btn:hover { background: var(--main); color: #000; box-shadow: 0 0 30px var(--main); transform: translateY(-3px); }
-        .btn-white { border-color: #fff; }
+        .btn-container { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; margin-top: 20px; }
+        .neon-btn { padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: 800; display: inline-flex; align-items: center; gap: 10px; color: #fff; border: 2px solid var(--main); transition: 0.4s; }
+        .neon-btn:hover { background: var(--main); color: #000; box-shadow: 0 0 30px var(--main); }
 
-        /* سایر بخش‌ها */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; padding: 60px 8%; }
-        .card { background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255,255,255,0.05); border-radius: 30px; padding: 40px; text-align: right; }
-        .card i { font-size: 3rem; color: var(--main); margin-bottom: 20px; display: block; }
+        /* گرید خدمات با متن‌های دقیق تو */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; padding: 60px 8%; }
+        .card { background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255,255,255,0.05); border-radius: 30px; padding: 35px; text-align: right; }
+        .card i { font-size: 2.5rem; color: var(--main); margin-bottom: 15px; display: block; }
+        .card h3 { color: var(--main); margin-bottom: 15px; }
 
-        .float-contact { position: fixed; bottom: 30px; left: 30px; z-index: 10000; display: flex; flex-direction: column; gap: 15px; }
-        .f-icon { width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.6rem; color: #fff; box-shadow: 0 0 20px rgba(0,0,0,0.5); animation: pulse 2s infinite; border: 2px solid rgba(255,255,255,0.2); }
+        .floating-group { position: fixed; bottom: 30px; left: 30px; z-index: 10000; display: flex; flex-direction: column; gap: 15px; }
+        .f-icon { width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.6rem; color: #fff; box-shadow: 0 0 20px rgba(0,0,0,0.5); border: 2px solid rgba(255,255,255,0.2); animation: pulse 2s infinite; }
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); box-shadow: 0 0 30px var(--main); } 100% { transform: scale(1); } }
     </style>
 </head>
@@ -60,43 +59,68 @@
         <label for="menu-toggle" class="menu-btn"><i class="fas fa-bars" style="color: #fff;"></i></label>
         <div class="menu-overlay">
             <label for="menu-toggle" style="position: absolute; top: 30px; right: 30px; font-size: 2rem; color: #fff;">✕</label>
-            <a href="#home">صفحه اصلی</a>
-            <a href="#services">تخصص و خدمات</a>
-            <a href="#portfolio">نمونه کارها</a>
+            <a href="#home">خانه</a>
+            <a href="#services">خدمات و تخصص</a>
+            <a href="#about">چرا ما؟</a>
             <a href="#contact">ارتباط مستقیم</a>
         </div>
     </div>
 
     <header id="home">
         <div class="glass-box">
-            <div class="experience-badge">+۵ سال سابقه درخشان و نتایج تضمینی</div>
+            <div class="badge">تجربه ۵+ سال مدیریت و نتایج تضمینی</div>
             <h1>پرنیا علی‌نژاد</h1>
-            <p style="font-size: 1.3rem; color: var(--main); margin-top: 15px; font-weight: 500;">استراتژیست محتوا و متخصص تراز اول AI</p>
+            <p style="font-size: 1.3rem; color: var(--main); margin-top: 15px; font-weight: 500;">ادمین حرفه‌ای اینستاگرام و روبیکا و تمام برنامه‌های داخلی</p>
+            <p style="max-width: 700px; line-height: 1.8; opacity: 0.9; margin-top: 20px;">
+                مدیریت کامل پیج، تولید محتوای جذاب همراه با سناریو فروش (پست، استوری، ریلز)، ادیت ویدیو و عکس با کیفیت بالا، پاسخگویی ۲۴ ساعته به مخاطبان، پشتیبانی کامل، افزایش فالوور و تعامل، طراحی کاور و بنر، و تمام خدمات از A تا Z!
+            </p>
             
             <div class="luxury-price">
-                شروع قیمت از ۴ میلیون تومان | اقساط بدون بهره
+                قیمت استثنایی از ۴ میلیون تومان <br>
+                <span style="font-size: 0.9rem;">پرداخت اقساطی آسان و بدون دردسر!</span>
             </div>
 
             <div class="btn-container">
                 <a href="tel:09920591283" class="neon-btn"><i class="fas fa-phone-alt"></i> شروع همکاری</a>
-                <a href="https://t.me/Parnia_Alinejad" class="neon-btn btn-white"><i class="fas fa-comment-dots"></i> مشاوره رایگان</a>
+                <a href="https://t.me/Parnia_Alinejad" class="neon-btn" style="border-color:#fff;"><i class="fas fa-comments"></i> مشاوره رایگان</a>
             </div>
         </div>
     </header>
 
     <section id="services" class="grid">
-        <div class="card"><i class="fas fa-brain"></i><h3>هوش مصنوعی</h3><p>تولید محتوا و آنالیز بازار با هوش مصنوعی جهت تضمین ورود به اکسپلور.</p></div>
-        <div class="card"><i class="fas fa-code"></i><h3>طراحی وب‌سایت</h3><p>طراحی لندینگ‌پیج‌های لوکس با سرعت خیره‌کننده جهت فروش انفجاری.</p></div>
-        <div class="card"><i class="fas fa-star"></i><h3>ادمین جامع</h3><p>مدیریت حرفه‌ای اینستاگرام و روبیکا با پاسخگویی ۲۴ ساعته و رشد واقعی.</p></div>
+        <div class="card">
+            <i class="fas fa-tasks"></i>
+            <h3>مدیریت و ادمینی</h3>
+            <p>مدیریت اینستاگرام، روبیکا و تمامی برنامه‌های داخلی با پاسخگویی ۲۴ ساعته و پشتیبانی کامل مخاطبان شما.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-video"></i>
+            <h3>تولید محتوا و سناریو</h3>
+            <p>خلق محتوای جذاب همراه با سناریو فروش (پست، استوری، ریلز) و ادیت حرفه‌ای عکس و ویدیو با بالاترین کیفیت.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-robot"></i>
+            <h3>هوش مصنوعی و وب</h3>
+            <p>طراحی وب‌سایت و استفاده از قدرت هوش مصنوعی برای تولید محتوای نوین و وایرال شدن برند شما در فضای دیجیتال.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-rocket"></i>
+            <h3>رشد و تعامل</h3>
+            <p>افزایش فالوور و تعامل واقعی، طراحی کاور و بنر حرفه‌ای؛ پیج‌تان را به درآمد واقعی برسانید!</p>
+        </div>
+    </section>
+
+    <section id="about" style="text-align: center; padding: 80px 10%; background: rgba(255,255,255,0.02);">
+        <h2 style="color: var(--main); font-size: 2rem;">✅ چرا ما؟</h2>
+        <p style="font-size: 1.2rem; line-height: 2;">تجربه ۵+ سال، نتایج تضمینی، نمونه کار واقعی. <br> همین حالا تماس بگیرید و مشاوره رایگان بگیرید!</p>
     </section>
 
     <footer id="contact" style="padding: 60px 5%; text-align: center; background: rgba(0,0,0,0.4);">
-        <h2>آماده شروع تحول هستید؟</h2>
         <p style="font-size: 1.5rem; color: var(--main); font-weight: 800;">09920591283</p>
-        <p style="opacity: 0.4; margin-top: 30px;">تمامی حقوق برای برند پرنیا علی‌نژاد محفوظ است | ۲۰۲۶</p>
+        <p style="opacity: 0.4; margin-top: 20px;">تمامی حقوق برای برند پرنیا علی‌نژاد محفوظ است | ۲۰۲۶</p>
     </footer>
 
-    <div class="floating-group float-contact">
+    <div class="floating-group">
         <a href="https://wa.me/989920591283" class="f-icon" style="background: #25d366;"><i class="fab fa-whatsapp"></i></a>
         <a href="tel:09920591283" class="f-icon" style="background: var(--main);"><i class="fas fa-phone"></i></a>
         <a href="https://t.me/Parnia_Alinejad" class="f-icon" style="background: #0088cc;"><i class="fab fa-telegram-plane"></i></a>
@@ -104,7 +128,7 @@
 
     <script>
         const container = document.getElementById('nebula-canvas');
-        for (let i = 0; i < 120; i++) {
+        for (let i = 0; i < 150; i++) {
             const star = document.createElement('div');
             star.className = 'star';
             const size = Math.random() * 2 + 1 + 'px';
